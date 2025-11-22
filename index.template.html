@@ -94,7 +94,14 @@
         </div>
     </div>
 
-    \u003cscript\u003e`n        // Configuration injected at build time`n        const CONFIG = {`n            PROXY_URL: '%%PROXY_URL%%',`n            HOME_URL: '%%HOME_URL%%'`n        };`n    \u003c/script\u003e`n    \u003cscript src="script.js"\u003e\u003c/script\u003e
+    <script>
+        // Configuration injected at build time
+        const CONFIG = {
+            PROXY_URL: '%%PROXY_URL%%',
+            HOME_URL: '%%HOME_URL%%'
+        };
+    </script>
+    <script src="script.js"></script>
 </body>
 </html>
 

@@ -16,7 +16,12 @@ let html = fs.readFileSync(templatePath, 'utf8');
 
 // Replace environment variable placeholders
 const PROXY_URL = process.env.PROXY_URL || 'https://cors-proxy-six-flame.vercel.app/proxy?url=';
-const HOME_URL = process.env.HOME_URL || '#';
+let HOME_URL = process.env.HOME_URL || '#';
+
+// Ensure absolute URL if it looks like a domain but lacks protocol
+if (HOME_URL && !HOME_URL.startsWith('http') && !HOME_URL.startsWith('/') && !HOME_URL.startsWith('.') && HOME_URL !== '#') {
+    HOME_URL = 'https://' + HOME_URL;
+}
 
 html = html.replace(/%%PROXY_URL%%/g, PROXY_URL);
 html = html.replace(/%%HOME_URL%%/g, HOME_URL);
