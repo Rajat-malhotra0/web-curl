@@ -22,13 +22,36 @@ A modern, minimalist web-based cURL tool for testing APIs directly from your bro
 
 ## Setup
 
-No build process required! This is a vanilla JavaScript application.
+### Local Development
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/Rajat-malhotra0/web-curl.git
+   cd web-curl
    ```
-2. Open `index.html` in any modern web browser.
+
+2. (Optional) Create a `.env` file to customize URLs (see `.env.example`):
+   ```env
+   PROXY_URL=https://your-cors-proxy.vercel.app/proxy?url=
+   HOME_URL=https://your-landing-page.com
+   ```
+
+3. Run the build script:
+   ```bash
+   node build.js
+   ```
+
+4. Open the generated `index.html` in any modern web browser.
+
+### Netlify Deployment
+
+1. Set environment variables in Netlify dashboard:
+   - `PROXY_URL`: URL to your CORS proxy (e.g., `https://cors-proxy.vercel.app/proxy?url=`)
+   - `HOME_URL`: URL to your landing page (e.g., `https://devtoolkit.netlify.app`)
+
+2. Deploy! Netlify will automatically run `build.js` during deployment.
+
+**Note**: The source template is `index.template.html`. The `index.html` file is generated and gitignored.
 
 ## Contributing
 
