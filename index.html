@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Curl | DevToolkit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="#" class="logo">
+            Dev<span>Toolkit</span> / Web Curl
+        </a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+    </nav>
+
+    <div class="workspace">
+        <div class="request-bar">
+            <select id="methodSelect" class="method-select">
+                <option value="GET">GET</option>
+                <option value="POST">POST</option>
+                <option value="PUT">PUT</option>
+                <option value="DELETE">DELETE</option>
+                <option value="PATCH">PATCH</option>
+            </select>
+            <input type="text" id="urlInput" class="url-input" placeholder="https://api.example.com/v1/resource" value="https://jsonplaceholder.typicode.com/todos/1">
+            <label class="proxy-toggle" title="Route request through AllOrigins proxy to bypass browser restrictions">
+                <input type="checkbox" id="corsProxyBtn" checked>
+                <span>Proxy</span>
+            </label>
+            <button id="sendBtn" class="send-btn">Send</button>
+        </div>
+
+        <div class="panels-container">
+            <!-- Request Panel -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="tabs">
+                        <button class="tab active" data-target="requestBody">Body</button>
+                        <button class="tab" data-target="requestHeaders">Headers</button>
+                    </div>
+                </div>
+                <div class="panel-content">
+                    <textarea id="requestBody" class="editor active" placeholder='{ "key": "value" }'></textarea>
+                    <div id="requestHeaders" class="viewer" style="padding: 1rem;">
+                        <div id="headersList"></div>
+                        <button id="addHeaderBtn" class="add-header-btn">+ Add Header</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Response Panel -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="tabs">
+                        <button class="tab active" data-target="responseBody">Response</button>
+                        <button class="tab" data-target="responseHeaders">Headers</button>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; align-items: center;">
+                        <span id="responseStatus" class="status-badge">Ready</span>
+                        <span id="responseTime" class="status-badge" style="background: transparent; border: 1px solid var(--border-color);">0ms</span>
+                        <span id="responseSize" class="status-badge" style="background: transparent; border: 1px solid var(--border-color);">0 B</span>
+                        <button id="copyBtn" class="icon-btn" title="Copy Response" aria-label="Copy Response">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="panel-content">
+                    <pre id="responseBody" class="viewer active"></pre>
+                    <div id="responseHeaders" class="viewer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
