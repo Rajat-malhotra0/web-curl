@@ -2,7 +2,7 @@
 
 A modern, minimalist web-based cURL tool for testing APIs directly from your browser.
 
-## 🚀 Features
+## Features
 
 - **Method Support**: GET, POST, PUT, DELETE, PATCH
 - **CORS Proxy**: Built-in proxy integration to bypass browser CORS restrictions
@@ -11,7 +11,7 @@ A modern, minimalist web-based cURL tool for testing APIs directly from your bro
 - **Copy to Clipboard**: Quickly copy response data
 - **Responsive Design**: Works seamlessly on desktop and mobile
 
-## 🛠️ Usage
+## Usage
 
 1. Open `index.html` in your browser.
 2. Enter the target API URL.
@@ -20,7 +20,7 @@ A modern, minimalist web-based cURL tool for testing APIs directly from your bro
 5. Toggle "Proxy" if you encounter CORS issues.
 6. Click **Send**.
 
-## 🔧 Setup
+## Setup
 
 No build process required! This is a vanilla JavaScript application.
 
@@ -30,10 +30,10 @@ No build process required! This is a vanilla JavaScript application.
    ```
 2. Open `index.html` in any modern web browser.
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## 📄 License
+## License
 
 MIT

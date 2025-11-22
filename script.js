@@ -77,6 +77,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial Header
     headersContainer.appendChild(createHeaderRow('Content-Type', 'application/json'));
 
+    // Config Logic
+    if (typeof CONFIG !== 'undefined') {
+        const logoLink = document.querySelector('.logo');
+        if (logoLink && CONFIG.HOME_URL) {
+            logoLink.href = CONFIG.HOME_URL;
+        }
+    }
+
     // Request Logic
     sendBtn.addEventListener('click', async () => {
         let url = urlInput.value.trim();
@@ -100,10 +108,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Proxy Logic
         if (useProxy) {
-            // Use custom CORS proxy
-            // For local testing: http://localhost:3001/proxy?url=
-            // For production: https://cors-proxy-six-flame.vercel.app/proxy?url=
-            const proxyUrl = 'https://cors-proxy-six-flame.vercel.app/proxy?url=';
+            // Use custom CORS proxy from config
+            const proxyUrl = (typeof CONFIG !== 'undefined' && CONFIG.PROXY_URL) 
+                ? CONFIG.PROXY_URL 
+                : 'https://cors-proxy-six-flame.vercel.app/proxy?url=';
+                
             url = proxyUrl + encodeURIComponent(url);
         }
 
